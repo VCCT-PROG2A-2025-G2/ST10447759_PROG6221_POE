@@ -6,31 +6,29 @@
  */
 using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using CyberSecurityBot.Services;
 
 namespace CyberSecurityBot
 {
     /// <summary>
     /// Entry point for the CyberSecurityBot application.
-    /// Configures dependency injection and starts the bot.
+    /// Instantiates services manually without dependency injection.
     /// </summary>
     class Program
     {
         static async Task Main(string[] args)
         {
-            // 1) Configure DI container (ensure Microsoft.Extensions.DependencyInjection is installed)
-            var services = new ServiceCollection()
-                .AddSingleton<IResponseService, InMemoryResponseService>()
-                .AddSingleton<VoiceGreetingService>()
-                .AddSingleton<InteractionService>()
-                .AddSingleton<CyberBot>()
-                .BuildServiceProvider();
+            // 1) Create your services directly
+            var responseService = new Services.InMemoryResponseService();
+            var voiceService = new VoiceGreetingService();
+            var interactionService = new InteractionService(responseService);
 
-            // 2) Run the bot
-            var bot = services.GetRequiredService<CyberBot>();
+            // 2) Wire up the bot
+            var bot = new CyberBot(voiceService, interactionService);
+
+            // 3) Run it
             await bot.RunAsync();
         }
     }
 }
+
 //==================================================================================/
