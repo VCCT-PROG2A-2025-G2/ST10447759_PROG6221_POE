@@ -4,6 +4,7 @@
  * ST10447759
  * PROG6221
  */
+using CyberSecurityBot.Services;
 using System;
 using System.Threading.Tasks;
 
@@ -17,15 +18,15 @@ namespace CyberSecurityBot
     {
         static async Task Main(string[] args)
         {
-            // 1) Create your services directly
-            var responseService = new Services.InMemoryResponseService();
+            // Instantiate services
+            var responseService = new InMemoryResponseService();
             var voiceService = new VoiceGreetingService();
             var interactionService = new InteractionService(responseService);
 
-            // 2) Wire up the bot
+            // Display header and run the bot
+            ConsoleUI.DisplayAsciiArt();
+            await voiceService.PlayVoiceGreetingAsync();
             var bot = new CyberBot(voiceService, interactionService);
-
-            // 3) Run it
             await bot.RunAsync();
         }
     }

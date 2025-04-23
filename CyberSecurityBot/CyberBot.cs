@@ -28,8 +28,6 @@ namespace CyberSecurityBot
         /// </summary>
         public async Task RunAsync()
         {
-            ConsoleUI.DisplayAsciiArt();
-            await _voiceService.PlayVoiceGreetingAsync();
             await _interactionService.GreetAndAskNameAsync();
             await _interactionService.MenuInteractionAsync();
         }

@@ -52,7 +52,15 @@ namespace CyberSecurityBot.Services
 
             { "malware and antivirus", new List<string> {
                 "Run reputable antivirus software and avoid suspicious executables.",
-                "Perform on-demand scans periodically." } }
+                "Perform on-demand scans periodically." } },
+
+            { "network security", new List<string> {
+                "Segment your network to limit access between systems.",
+                "Use strong firewall rules and monitor logs for anomalies." } },
+
+            { "social engineering", new List<string> {
+                "Be wary of unsolicited requests for information, even if they appear legitimate.",
+                "Verify identities by calling people back on known numbers." } }
         };
     }
 }

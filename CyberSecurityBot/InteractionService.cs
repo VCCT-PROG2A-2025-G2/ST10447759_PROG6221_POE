@@ -2,7 +2,7 @@
 /*
  * Jeron Okkers
  * ST10447759
- * PROG6221
+ * PROG6221 - Part 1
  */
 using System;
 using System.Collections.Generic;
@@ -18,36 +18,36 @@ namespace CyberSecurityBot
     public class InteractionService
     {
         private readonly IResponseService _responseService;
-        private readonly List<string> _options;
+        private readonly List<string> _topics;
         private string _userName;
 
         public InteractionService(IResponseService responseService)
         {
             _responseService = responseService;
-            _options = responseService.GetAvailableTopics().ToList();
-            _options.Add("exit");
+            _topics = responseService.GetAvailableTopics().OrderBy(t => t).ToList();
+            _topics.Add("exit");
         }
+
 
         /// <summary>
         /// Prompts the user for their name and stores it locally.
         /// </summary>
         public async Task GreetAndAskNameAsync()
         {
-            await ConsoleUI.TypeWriteAsync("Good day! What’s your name?");
+            await ConsoleUI.TypeWriteAsync("Good day! What's your name?");
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 var input = Console.ReadLine()?.Trim();
                 Console.ResetColor();
-
                 if (!string.IsNullOrEmpty(input))
                 {
                     _userName = input;
                     break;
                 }
-                await ConsoleUI.TypeWriteAsync("Oops, I missed that. Could you please type your name?");
+                await ConsoleUI.TypeWriteAsync("Oops, I missed that. Please type your name:");
             }
-            await ConsoleUI.TypeWriteAsync($"Nice to meet you, {_userName}! Let's explore how to stay safe online.\n");
+            await ConsoleUI.TypeWriteAsync($"Nice to meet you, {_userName}! Let's get started.\n");
         }
 
         /// <summary>
@@ -57,38 +57,48 @@ namespace CyberSecurityBot
         {
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Choose a topic by number (or type 'exit' to quit):");
-                for (int i = 0; i < _options.Count; i++)
-                    Console.WriteLine($"  {i + 1}. {_options[i]}");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Select a topic by number, or type a keyword (e.g. 'phishing'), or 'exit':");
+                for (int i = 0; i < _topics.Count; i++)
+                    Console.WriteLine($"  {i + 1}. {_topics[i]}");
                 Console.ResetColor();
 
                 var input = Console.ReadLine()?.Trim();
                 if (string.IsNullOrEmpty(input))
                 {
-                    await ConsoleUI.TypeWriteAsync("Please enter a number.");
+                    await ConsoleUI.TypeWriteAsync("Please enter a topic or number.");
                     continue;
                 }
+
+                // Exit
                 if (input.Equals("exit", StringComparison.OrdinalIgnoreCase) ||
-                    int.TryParse(input, out int sel0) && sel0 == _options.Count)
+                    (int.TryParse(input, out int ex) && ex == _topics.Count))
                 {
                     await ConsoleUI.TypeWriteAsync("Goodbye! Stay secure online.");
                     break;
                 }
 
-                if (int.TryParse(input, out int sel) && sel >= 1 && sel < _options.Count)
+                string reply;
+                // Number selection
+                if (int.TryParse(input, out int sel) && sel >= 1 && sel < _topics.Count)
                 {
-                    var key = _options[sel - 1];
-                    var reply = _responseService.GetRandomResponse(key);
-                    await ConsoleUI.TypeWriteAsync(reply);
+                    reply = _responseService.GetRandomResponse(_topics[sel - 1]);
                 }
                 else
                 {
-                    await ConsoleUI.TypeWriteAsync("Invalid selection. Please choose a valid number.");
+                    // Keyword detection
+                    var found = _topics
+                        .Where(t => t != "exit")
+                        .FirstOrDefault(t => input.IndexOf(t, StringComparison.OrdinalIgnoreCase) >= 0);
+                    reply = _responseService.GetRandomResponse(found ?? "");
+
                 }
+
+                await ConsoleUI.TypeWriteAsync(reply);
                 Console.WriteLine();
             }
         }
     }
 }
-//================================================================================================================================================================//
+
+//==================================================================================/

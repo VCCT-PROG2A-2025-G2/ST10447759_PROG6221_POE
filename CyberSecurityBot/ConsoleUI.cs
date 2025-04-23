@@ -57,6 +57,7 @@ namespace CyberSecurityBot
             } 
 
             Console.ResetColor();
+            Console.WriteLine();
         }
 
         /// <summary>
