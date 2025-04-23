@@ -10,7 +10,8 @@ using System.Media;
 using System.Threading.Tasks;
 
 namespace CyberSecurityBot
-{  
+{
+    //--------------------------------------------------------------------------------------//
     /// Plays the voice greeting WAV and types the welcome message.
     public class VoiceGreetingService
     {
@@ -20,6 +21,7 @@ namespace CyberSecurityBot
         {
             try
             {
+                //--------------------------------------------------------------------------------------//
                 // Attempt to load and play a WAV greeting file  
                 var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, GreetingFile);
                 using (var player = new SoundPlayer(filePath))
@@ -41,4 +43,5 @@ namespace CyberSecurityBot
         }
     }
 }
+//==================================================================================/
 

@@ -3,8 +3,9 @@
  * Jeron Okkers
  * ST10447759
  * PROG6221
- */ 
+ */
 // Provides utility methods for visual effects like typing animation and ASCII art logo
+// Reference: ASCII art from https://www.asciiart.eu/text-to-ascii-art
 
 using System;
 using System.Threading;
@@ -75,3 +76,4 @@ namespace CyberSecurityBot
         }
     }
 }
+//==================================================================================/
