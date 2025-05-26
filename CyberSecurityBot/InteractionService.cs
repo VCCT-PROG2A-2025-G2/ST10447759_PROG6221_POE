@@ -32,7 +32,7 @@ namespace CyberSecurityBot
         /// <summary>
         /// Prompts the user for their name and stores it.
         /// </summary>
-        public async Task GreetAndAskNameAsync()
+        public virtual async Task GreetAndAskNameAsync()
         {
             await ConsoleUI.TypeWriteAsync("Good day! What's your name?");
             while (true)
@@ -54,7 +54,7 @@ namespace CyberSecurityBot
         /// Displays a menu of topics and processes user input until exit.
         /// Includes sentiment detection, user memory capture, and recall.
         /// </summary>
-        public async Task MenuInteractionAsync()
+        public virtual async Task MenuInteractionAsync()
         {
             while (true)
             {

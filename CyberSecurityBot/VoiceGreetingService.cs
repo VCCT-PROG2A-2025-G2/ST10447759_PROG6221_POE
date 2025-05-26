@@ -17,7 +17,7 @@ namespace CyberSecurityBot
     {
         private const string GreetingFile = "Greeting.wav";
 
-        public async Task PlayVoiceGreetingAsync()
+        public virtual async Task PlayVoiceGreetingAsync()
         {
             try
             {
