@@ -11,7 +11,7 @@ namespace CyberSecurityBot.Tests
     {
         public bool PlayVoiceGreetingAsyncCalled { get; private set; } = false;
 
-        public override async Task PlayVoiceGreetingAsync() // Must be virtual in the base class
+        public override async Task PlayVoiceGreetingAsync() // Must be virtual in the base classes
         {
             PlayVoiceGreetingAsyncCalled = true;
             await Task.CompletedTask;
