@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSecurityBot", "CyberSecurityBot\CyberSecurityBot.csproj", "{9BCDBDEC-3F64-48CD-83CD-3FE76244589E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSecurityBot.TestsCyberSecurityBot.Tests", "CyberSecurityBot.TestsCyberSecurityBot.Tests\CyberSecurityBot.TestsCyberSecurityBot.Tests.csproj", "{B4FFE904-DDA1-4965-9E05-A164DB90730B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyberSecurityBot.Tests", "CyberSecurityBot.TestsCyberSecurityBot.Tests\CyberSecurityBot.Tests.csproj", "{B4FFE904-DDA1-4965-9E05-A164DB90730B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
