@@ -1,31 +1,22 @@
-# Cybersecurity Awareness Chatbot (Part 1)
-
-**Student:** Jeron Okkers (ST10447759)\
-**Module:** PROG6221 – Programming 2A\
-**Part 1 Submission**
-
----
-
-&#x20;&#x20;
-
 ## 🚀 Project Overview
 
-This console application is a **Cybersecurity Awareness Bot** developed in C#. When launched, it:
+This console application is a **Cybersecurity Awareness Bot** developed in C#. 
 
-- Plays a **voice greeting** (`Greeting.wav`) to welcome the user.
-- Displays **ASCII art** header for visual flair.
-- Prompts for the user’s name and personalizes responses.
-- Offers a menu of cybersecurity topics (password safety, phishing, safe browsing, etc.).
-- Validates input and handles unknown requests gracefully.
-- Simulates a conversational “typing” effect for immersive UX.
+Now updated for **Part 2**, it includes:
 
-This assignment builds your understanding of:
+- Dynamic responses using **keyword recognition** (e.g., "password", "scam", "privacy").
+- A **memory feature** that recalls user preferences or inputs.
+- Basic **sentiment detection** (e.g., detects "worried" or "curious" tones).
+- Support for **natural conversational flow** and follow-up questions.
+- **Unit tests** using MSTest to validate core chatbot logic.
 
-1. Console I/O and user interaction
-2. Dependency Injection with **Microsoft.Extensions.DependencyInjection**
-3. Asynchronous programming patterns in C#
-4. Basic string manipulation, collections, and randomization
-5. Structured, modular code design (single responsibility principle)
+This part builds on Part 1 with:
+
+1. Enhanced use of collections (`List`, `Dictionary`)
+2. Introduction of **delegates** to handle response strategies
+3. Use of basic logic to simulate **natural language processing**
+4. More sophisticated input validation and fallback handling
+
 
 ---
 
