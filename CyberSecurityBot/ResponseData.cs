@@ -20,7 +20,7 @@ namespace CyberSecurityBot.Services
         {
             { "how are you", new List<string> {
                 "I’m doing great, thanks for asking!",
-                "Feeling secure and ready to help!" } },
+                "Feeling secure and ready to help you!" } },
 
             { "what's your purpose", new List<string> {
                 "I’m here to help you stay safe online.",
