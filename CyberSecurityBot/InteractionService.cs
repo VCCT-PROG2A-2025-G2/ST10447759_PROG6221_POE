@@ -105,7 +105,7 @@ namespace CyberSecurityBot
                 // Sentiment detection
                 if (input.IndexOf("worried", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    Console.WriteLine("Chatbot: It's understandable to feel that way. Let me share some tips to help you stay safe.");
+                    Console.WriteLine("Chatbot: It's understandable to feel that way. Let me share some tips to help you stay safe online.");
                     continue;
                 }
                 if (input.IndexOf("frustrated", StringComparison.OrdinalIgnoreCase) >= 0)
