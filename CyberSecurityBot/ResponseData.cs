@@ -57,7 +57,15 @@ namespace CyberSecurityBot.Services
             { "network security", new List<string> {
                 "Segment your network to limit access between systems.",
                 "Use strong firewall rules and monitor logs for anomalies." } },
+            { "scam", new List<string> {
+                "Scammers often impersonate people you trust. Always verify requests by contacting the organisation directly.",
+                "Never give out personal or financial details in response to an unexpected email or call—scams rely on urgency and fear."
+            }},
 
+            { "privacy", new List<string> {
+                "Review your account privacy settings regularly—limit who can see your posts and personal info.",
+                "Be mindful of apps and services asking for extra permissions; only grant what’s strictly necessary."
+            }},
             { "social engineering", new List<string> {
                 "Be wary of unsolicited requests for information, even if they appear legitimate.",
                 "Verify identities by calling people back on known numbers." } }
