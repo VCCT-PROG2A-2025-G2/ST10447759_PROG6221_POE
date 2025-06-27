@@ -1,32 +1,27 @@
-name: Build & Test WPF CyberSecurityBot
+name: Build .NET Framework 4.8 WPF App
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [master]
   pull_request:
-    branches: [ "master" ]
+    branches: [master]
 
 jobs:
   build:
     runs-on: windows-latest
 
-    env:
-      DOTNET_ROOT: C:\Program Files\dotnet
-
     steps:
-    - name: 📥 Checkout repo
+    - name: 📥 Checkout code
       uses: actions/checkout@v4
 
-    - name: 🔧 Setup .NET SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
+    - name: 🔧 Setup NuGet
+      uses: NuGet/setup-nuget@v1
 
-    - name: 📦 Restore dependencies
-      run: dotnet restore
+    - name: 🔧 Restore NuGet packages
+      run: nuget restore ST10447759_PROG6221_POE.sln
 
-    - name: 🧱 Build WPF App
-      run: dotnet build --configuration Release --no-restore -p:PlatformTarget=x64
+    - name: 🧱 Build with MSBuild
+      uses: microsoft/setup-msbuild@v1.3.1
 
-    - name: 🚫 Skip Tests if none exist
-      run: echo "No unit tests defined for GUI app."
+    - name: 🚀 Build the solution
+      run: msbuild ST10447759_PROG6221_POE.sln /p:Configuration=Release /p:Platform=\"Any CPU\"
