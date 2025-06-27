@@ -26,7 +26,7 @@ This final version (Part 3) transforms the console-based Cybersecurity Bot into 
   - Tracks recent actions like added tasks, completed quiz sessions, and recognized keywords
   - Option to view last 5–10 activities with a “Show More” feature
 
-> 🎥 [Watch Part 3 Demo on YouTube](https://youtu.be/your-demo-link-here)
+> 🎥 [Watch Part 3 Demo on YouTube](https://youtu.be/0GYE0yjPHJA)
 
 ---
 
