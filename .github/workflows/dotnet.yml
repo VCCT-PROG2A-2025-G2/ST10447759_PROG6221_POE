@@ -18,10 +18,10 @@ jobs:
       uses: NuGet/setup-nuget@v1
 
     - name: 🔧 Restore NuGet packages
-      run: nuget restore ST10447759_PROG6221_POE.sln
+      run: nuget restore CyberSecurityBot.sln
 
     - name: 🧱 Build with MSBuild
       uses: microsoft/setup-msbuild@v1.3.1
 
     - name: 🚀 Build the solution
-      run: msbuild ST10447759_PROG6221_POE.sln /p:Configuration=Release /p:Platform=\"Any CPU\"
+      run: msbuild CyberSecurityBot.sln /p:Configuration=Release /p:Platform=\"Any CPU\"
