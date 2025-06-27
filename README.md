@@ -1,110 +1,68 @@
+# 🤖 CyberSecurity Awareness Bot – Part 3
+
 ## 🚀 Project Overview
 
-This console application is a **Cybersecurity Awareness Bot** developed in C#. 
+This final version (Part 3) transforms the console-based Cybersecurity Bot into a full **WPF GUI application** with the following enhancements:
 
-Now updated for **Part 2**, it includes:
+- **Graphical Interface (WPF)**:
+  - Interactive chat window
+  - Dedicated windows for tasks, quizzes, and logs
 
-- Dynamic responses using **keyword recognition** (e.g., "password", "scam", "privacy").
-- A **memory feature** that recalls user preferences or inputs.
-- Basic **sentiment detection** (e.g., detects "worried" or "curious" tones).
-- Support for **natural conversational flow** and follow-up questions.
-- **Unit tests** using MSTest to validate core chatbot logic.
+- **Task Manager with Reminders**:
+  - Add tasks with title, description, and a future reminder date
+  - Automatically alerts the user when reminders are due
+  - Mark tasks as complete or delete them
 
-This part builds on Part 1 with:
+- **Cybersecurity Quiz (Game)**:
+  - Multiple choice and true/false formats
+  - Immediate feedback after each question
+  - Score tracking and personalized end message
 
-1. Enhanced use of collections (`List`, `Dictionary`)
-2. Introduction of **delegates** to handle response strategies
-3. Use of basic logic to simulate **natural language processing**
-4. More sophisticated input validation and fallback handling
+- **NLP Simulation**:
+  - Detects keywords in user phrases like “remind me to…”, “quiz me”, or “what have you done?”
+  - Recognizes cybersecurity topics like "phishing", "password", or "privacy"
 
+- **Activity Log**:
+  - Tracks recent actions like added tasks, completed quiz sessions, and recognized keywords
+  - Option to view last 5–10 activities with a “Show More” feature
+
+> 🎥 [Watch Part 3 Demo on YouTube](https://youtu.be/your-demo-link-here)
 
 ---
 
 ## 📂 Repository Structure
 
-```text
-/CyberSecurityBot
-├── Program.cs
-├── CyberBot.cs
-├── InteractionService.cs
-├── ConsoleUI.cs
-├── VoiceGreetingService.cs
-├── IResponseService.cs
-├── ResponseData.cs
-└── InMemoryResponseService.cs
-```
+/CyberSecurityBotGUI (WPF GUI Project)  
+├── MainWindow.xaml.cs — Chat logic & NLP routing  
+├── TaskWindow.xaml.cs — Task management with reminders  
+├── QuizWindow.xaml.cs — Cybersecurity quiz  
+├── LogWindow.xaml.cs — Recent actions  
+├── App.xaml — WPF Application setup  
+└── packages.config — NuGet references
 
-**Note:** All chatbot Q&A data is stored **in-memory** in `ResponseData.cs`—no external JSON file required.
+/CyberSecurityBot.Core  
+
+.github/  
+└── workflows/  
+    └── main.yml — GitHub Actions CI workflow
+
+README.md — This file  
+CyberSecurityBot.sln — Visual Studio solution file
 
 ---
 
 ## ⚙️ Prerequisites
 
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
-- Windows with audio support (for voice greeting)
-- (Optional) Visual Studio 2022 or [VS Code](https://code.visualstudio.com/) with C# extension
+* .NET Framework 4.8 Developer Pack  
+* Windows OS  
+* Visual Studio 2019 or 2022  
+* NuGet CLI (optional for CLI builds)
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Setup & Run
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/<your-username>/CyberSecurityBot.git
-   cd CyberSecurityBot
-   ```
-2. **Restore NuGet packages** (DI package is required)
-   ```bash
-   dotnet restore
-   ```
-3. **Build the solution**
-   ```bash
-   dotnet build
-   ```
-4. **Run the application**
-   ```bash
-   dotnet run --project ./CyberSecurityBot.csproj
-   ```
-
----
-
-## 🎮 How to Use
-
-1. Launch the app – you’ll hear a friendly voice greeting if `Greeting.wav` is present.
-2. ASCII art logo appears, followed by a prompt: *“Good day! What’s your name?”*
-3. After entering your name, you’ll see a numbered menu of cybersecurity topics.
-4. Enter the number corresponding to your topic to get practical tips.
-5. Type **exit** or select the last menu item to quit gracefully.
-
----
-
-## ✅ Continuous Integration (CI)
-
-This repo is configured with **GitHub Actions** to:
-
-- **Build** on every push
-- **Run** a simple syntax check (no unit tests yet)
-
-> **Hint:** Add your own tests and update the CI workflow at `.github/workflows/ci.yml`.
-
----
-
-## 📈 Version Control & Commits
-
-A minimum of **three meaningful commits** is required:
-
-1. **Initial commit:** Project scaffolding & DI setup
-2. **Greeting & UI:** Voice greeting, ASCII art, and typing effect
-3. **Core logic:** In-memory responses, menu navigation, and input validation
-
----
-
-## 🙌 Next Steps (Part 2)
-
-- **Dynamic responses** based on keyword detection
-- **Memory & recall** (remember user preferences)
-- **Sentiment detection** to adjust tone
-- **Unit testing** for core services
-
-Stay secure online—and keep coding! 🔒👨‍💻
-
+1. **Clone the Repository**  
+```bash
+git clone https://github.com/VCCT-PROG2A-2025-G2/ST10447759_PROG6221_POE.git  
+cd ST10447759_PROG6221_POE
